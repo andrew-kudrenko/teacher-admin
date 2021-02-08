@@ -1,5 +1,6 @@
 import { DataGridProps, RowId } from '@material-ui/data-grid'
 import { EditorMode } from '../enums/common.enums'
+import { Nullable } from './utility.types'
 
 export type DrawerProps = {
   opened: boolean
@@ -36,4 +37,27 @@ export type TableToolbarButtonsProps = Omit<
   keyof DataGridProps | 'onEdit'
 > & {
   selected: Array<RowId>
+}
+
+export type FileLoaderProps = {
+  onSelect: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClear: () => void
+  onUpload: () => void
+  preview: Nullable<string>
+}
+
+export type GalleryGridTileProps = {
+  file: string
+  cols: number
+}
+
+export type GalleryGridProps = {
+  tiles: Array<GalleryGridTileProps>
+}
+
+export type IFileLoaderProps = {
+  onSelect: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClear: () => void
+  onUpload: () => void
+  preview: Nullable<string>
 }

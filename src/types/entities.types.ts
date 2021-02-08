@@ -11,3 +11,8 @@ export type Material = {
 export type MaterialsPage = {
   materials: Array<Material>
 }
+
+export type Photo = {
+  file: string
+  cols: number
+}

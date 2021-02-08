@@ -1,6 +1,6 @@
-export function onChange(fn: (value: string) => void) {
+export function onChange<T = string>(fn: (value: T) => void) {
   return function (event: React.ChangeEvent<HTMLInputElement>) {
-    fn(event.target.value)
+    fn(event.target.value as any)
   }
 }
 
