@@ -16,3 +16,9 @@ export type Photo = {
   file: string
   cols: number
 }
+
+export type News = {
+  title: string
+  content: string
+  image: string
+}

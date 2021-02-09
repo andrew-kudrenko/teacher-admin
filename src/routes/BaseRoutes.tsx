@@ -10,6 +10,9 @@ import { EditMaterialsCategoryPage } from '../pages/materials/categories/EditMat
 import { MaterialsCategoriesPage } from '../pages/materials/categories/MaterialsCategoriesPage'
 import { EditMaterialPage } from '../pages/materials/EditMaterialPage'
 import { MaterialsPage } from '../pages/materials/MaterialsPage'
+import { AddNewsPage } from '../pages/news/AddNewsPage'
+import { EditNewsPage } from '../pages/news/EditNewsPage'
+import { NewsPage } from '../pages/news/NewsPage'
 
 export const BaseRoutes: React.FC = () => {
   return (
@@ -37,6 +40,10 @@ export const BaseRoutes: React.FC = () => {
       <Route exact path="/gallery/edit/:id" component={EditPhotoPage} />
       <Route exact path="/gallery/add" component={AddPhotoPage} />
       <Route exact path="/gallery" component={GalleryPage} />
+
+      <Route exact path="/news/edit/:id" component={EditNewsPage} />
+      <Route exact path="/news/add" component={AddNewsPage} />
+      <Route exact path="/news" component={NewsPage} />
 
       <Route exact path="/home" component={HomePage} />
       {/* <Redirect from="*" to="/home" /> */}

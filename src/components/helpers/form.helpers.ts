@@ -1,5 +1,7 @@
 export function onChange<T = string>(fn: (value: T) => void) {
-  return function (event: React.ChangeEvent<HTMLInputElement>) {
+  return function (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     fn(event.target.value as any)
   }
 }

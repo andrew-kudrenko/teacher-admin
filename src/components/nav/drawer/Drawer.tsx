@@ -73,7 +73,7 @@ const drawerListOptions: Array<DrawerListOptionProps> = [
     icon: <BookOutlined />,
   },
   // { label: 'Портфолио', to: '/portfolio', icon: <BusinessCenterOutlined /> },
-  // { label: 'Новости', to: '/news', icon: <HomeOutlined /> },
+  { label: 'Новости', to: '/news', icon: <HomeOutlined /> },
   { label: 'Фотогалерея', to: '/gallery', icon: <CameraEnhanceOutlined /> },
   // { label: 'Достижения', to: '/achievements', icon: <StarOutline /> },
   // { label: 'Контакты', to: '/contacts', icon: <CallOutlined /> },
