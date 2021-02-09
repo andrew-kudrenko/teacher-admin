@@ -47,6 +47,7 @@ export type FileLoaderProps = {
 }
 
 export type GalleryGridTileProps = {
+  id: string
   file: string
   cols: number
 }

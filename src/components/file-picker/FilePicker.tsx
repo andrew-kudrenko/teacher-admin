@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Button, makeStyles, Theme, Typography } from '@material-ui/core'
 import { FileLoaderProps } from '../../types/components.types'
+import { apiUrl } from '../helpers/api.helpers'
 
 const useStyles = makeStyles((theme: Theme) => ({
   preview: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-export const FileLoader: React.FC<FileLoaderProps> = ({
+export const FilePicker: React.FC<FileLoaderProps> = ({
   onClear,
   onUpload,
   onSelect,
@@ -31,11 +32,17 @@ export const FileLoader: React.FC<FileLoaderProps> = ({
 }) => {
   const classes = useStyles()
 
+  const isAbsolute = preview?.includes('http')
+
   return (
     <Box className={classes.fileLoader}>
       <Box>
         {preview ? (
-          <img alt="preview" src={preview} className={classes.preview} />
+          <img
+            alt="preview"
+            src={isAbsolute ? preview : `${apiUrl}/${preview}`}
+            className={classes.preview}
+          />
         ) : (
           <Typography variant="subtitle1">{'Выберите изображение'}</Typography>
         )}
@@ -49,14 +56,6 @@ export const FileLoader: React.FC<FileLoaderProps> = ({
         onChange={onSelect}
       />
       <Box className={classes.loaderButtons}>
-        <Button
-          onClick={onUpload}
-          variant="contained"
-          color="primary"
-          className={classes.button}
-        >
-          {'Сохранить'}
-        </Button>
         <label htmlFor="file-loader">
           <Button
             variant="outlined"
@@ -64,7 +63,7 @@ export const FileLoader: React.FC<FileLoaderProps> = ({
             className={classes.button}
             component="span"
           >
-            {'Загрузить'}
+            {'Выбрать'}
           </Button>
         </label>
         <Button

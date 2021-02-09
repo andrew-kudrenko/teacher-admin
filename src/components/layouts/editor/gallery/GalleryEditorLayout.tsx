@@ -7,8 +7,9 @@ import { apiUrl } from '../../../helpers/api.helpers'
 import { useIdParam } from '../../../../hooks/id-param.hook'
 import { EditorMode } from '../../../../enums/common.enums'
 import { useFileLoader } from '../../../../hooks/file-uploading'
-import { FileLoader } from '../../../files/FileLoader'
 import { onChange } from '../../../helpers/form.helpers'
+import { Photo } from '../../../../types/entities.types'
+import { FilePicker } from '../../../file-picker/FilePicker'
 
 const baseUrl = `${apiUrl}/photos`
 
@@ -18,7 +19,7 @@ export const GalleryEditorLayout: React.FC<BoundEditorLayoutProps> = props => {
   const [cols, setCols] = useState(1)
   const loaderProps = useFileLoader(`${baseUrl}/upload`)
 
-  const { onUpload } = loaderProps
+  const { onUpload, preview, setPreview } = loaderProps
 
   const isEditing = props.mode === EditorMode.Edit
 
@@ -26,16 +27,37 @@ export const GalleryEditorLayout: React.FC<BoundEditorLayoutProps> = props => {
     const response = await onUpload()
     if (response) {
       const file: string = response.data
-      console.log(file)
-      console.log(await axios.post(baseUrl, { cols, file }))
+      await axios.post(baseUrl, { cols, file })
     }
   }
 
-  async function onUpdate() {}
+  async function onUpdate() {
+    await onUpload()
+    console.log(
+      await axios.patch(`${baseUrl}/${id}`, {
+        cols,
+        file: preview,
+      })
+    )
+  }
 
-  async function onDelete() {}
+  async function onDelete() {
+    await axios.delete(`${baseUrl}/${id}`)
+  }
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    ;(async () => {
+      const response = await axios.get(`${baseUrl}/${id}`)
+      if (response.data) {
+        const { cols, file } = response.data as Photo
+        setCols(cols ? cols : 1)
+
+        if (file) {
+          setPreview(file)
+        }
+      }
+    })()
+  }, [])
 
   return (
     <EditorLayout
@@ -50,11 +72,11 @@ export const GalleryEditorLayout: React.FC<BoundEditorLayoutProps> = props => {
           variant="outlined"
           label="Колонки"
           onChange={onChange(setCols)}
-          value={cols}
+          value={cols || ''}
         />
       </Grid>
       <Grid item xs={12}>
-        <FileLoader {...loaderProps} />
+        <FilePicker {...loaderProps} />
       </Grid>
     </EditorLayout>
   )

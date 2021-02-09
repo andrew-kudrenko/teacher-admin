@@ -18,7 +18,6 @@ export const GalleryPage: React.FC = () => {
         file: `${apiUrl}/${p.file}`,
         cols: p.cols >= 1 && p.cols <= 3 ? p.cols : 1,
       }))
-      console.log(handled)
 
       setTiles(handled)
     }

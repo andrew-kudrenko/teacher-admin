@@ -7,12 +7,11 @@ export function useFileLoader(url: string) {
   const [preview, setPreview] = useState<Nullable<string>>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [] = useState()
 
   useEffect(() => {
-    if (preview !== null) {
-      URL.revokeObjectURL(preview)
-    }
+    // if (preview !== null) {
+    //   URL.revokeObjectURL(preview)
+    // }
     if (file !== null) {
       setPreview(URL.createObjectURL(file))
     }
@@ -53,5 +52,13 @@ export function useFileLoader(url: string) {
     setProgress(0)
   }
 
-  return { preview, isLoading, progress, onUpload, onSelect, onClear }
+  return {
+    preview,
+    isLoading,
+    progress,
+    onUpload,
+    onSelect,
+    onClear,
+    setPreview,
+  }
 }

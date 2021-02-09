@@ -7,6 +7,8 @@ import {
   Box,
 } from '@material-ui/core'
 import { GalleryGridProps } from '../../types/components.types'
+import React from 'react'
+import { NavLink, useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const GalleryGrid: React.FC<GalleryGridProps> = ({ tiles }) => {
   const classes = useStyles()
+  const { location } = useHistory()
 
   const greatThanSm = useMediaQuery(`(min-width: ${350}px)`)
   const greatThanMd = useMediaQuery(`(min-width: ${450}px)`)
@@ -56,10 +59,12 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({ tiles }) => {
         >
           {tiles.map((t, idx) => (
             <GridListTile
-              key={`${t.file}--${idx}`}
+              key={`${t.id}--${idx}`}
               cols={greatThanMd ? t.cols : 3}
+              component={NavLink}
+              to={`${location.pathname}/edit/${t.id}`}
             >
-              <img src={t.file} />
+              <img src={t.file} alt="" />
             </GridListTile>
           ))}
         </GridList>
