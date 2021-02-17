@@ -14,6 +14,7 @@ import { apiUrl } from '../helpers/api.helpers'
 
 const useStyles = makeStyles({
   root: {
+    minWidth: 300,
     maxWidth: 550,
     width: '100%',
     margin: '.5rem',
