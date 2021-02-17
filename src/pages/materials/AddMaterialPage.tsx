@@ -3,5 +3,9 @@ import { MaterialsEditorLayout } from '../../components/layouts/editor/materials
 import { EditorMode } from '../../enums/common.enums'
 
 export const AddMaterialPage: React.FC = () => (
-  <MaterialsEditorLayout title="Добавить материал" mode={EditorMode.Add} />
+  <MaterialsEditorLayout
+    title="Добавить материал"
+    mode={EditorMode.Add}
+    url="materials"
+  />
 )

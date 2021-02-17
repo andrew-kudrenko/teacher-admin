@@ -30,7 +30,10 @@ export type EditorLayoutProps = EditorLayoutButtonsProps & {
   title: string
 }
 
-export type BoundEditorLayoutProps = Pick<EditorLayoutProps, 'title' | 'mode'>
+export type BoundEditorLayoutProps = Pick<
+  EditorLayoutProps,
+  'title' | 'mode'
+> & { url: string }
 
 export type TableToolbarButtonsProps = Omit<
   TableProps,

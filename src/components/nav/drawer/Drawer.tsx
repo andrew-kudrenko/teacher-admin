@@ -10,9 +10,12 @@ import {
 } from '@material-ui/core'
 import {
   BookOutlined,
+  BusinessCenterOutlined,
+  CallOutlined,
   CameraEnhanceOutlined,
   ChevronLeft,
   HomeOutlined,
+  StarOutline,
 } from '@material-ui/icons'
 
 import { DrawerListOption } from './DrawerListOption'
@@ -72,11 +75,11 @@ const drawerListOptions: Array<DrawerListOptionProps> = [
     to: '/materials-categories',
     icon: <BookOutlined />,
   },
-  // { label: 'Портфолио', to: '/portfolio', icon: <BusinessCenterOutlined /> },
+  { label: 'Родителям', to: '/parents', icon: <BusinessCenterOutlined /> },
   { label: 'Новости', to: '/news', icon: <HomeOutlined /> },
   { label: 'Фотогалерея', to: '/gallery', icon: <CameraEnhanceOutlined /> },
-  // { label: 'Достижения', to: '/achievements', icon: <StarOutline /> },
-  // { label: 'Контакты', to: '/contacts', icon: <CallOutlined /> },
+  { label: 'Портфолио', to: '/portfolio', icon: <StarOutline /> },
+  { label: 'Контакты', to: '/contacts', icon: <CallOutlined /> },
 ]
 
 export const Drawer: React.FC<DrawerProps> = ({ opened, onToggle }) => {

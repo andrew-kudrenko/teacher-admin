@@ -11,10 +11,12 @@ import { onChange } from '../../../helpers/form.helpers'
 import { News } from '../../../../types/entities.types'
 import { FilePicker } from '../../../file-picker/FilePicker'
 
-const baseUrl = `${apiUrl}/news`
-
-export const NewsEditorLayout: React.FC<BoundEditorLayoutProps> = props => {
+export const NewsEditorLayout: React.FC<BoundEditorLayoutProps> = ({
+  url,
+  ...props
+}) => {
   const id = useIdParam()
+  const baseUrl = `${apiUrl}/${url}`
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')

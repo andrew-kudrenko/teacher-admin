@@ -6,5 +6,6 @@ export const AddMaterialsCategoryPage: React.FC = () => (
   <MaterialsCategoriesEditorLayout
     title="Добавить категорию материалов"
     mode={EditorMode.Add}
+    url="materials-categories"
   />
 )

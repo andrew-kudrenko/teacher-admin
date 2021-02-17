@@ -3,5 +3,5 @@ import { NewsEditorLayout } from '../../components/layouts/editor/news/NewsEdito
 import { EditorMode } from '../../enums/common.enums'
 
 export const AddNewsPage: React.FC = () => (
-  <NewsEditorLayout title="Добавить новость" mode={EditorMode.Add} />
+  <NewsEditorLayout title="Добавить новость" mode={EditorMode.Add} url="news" />
 )

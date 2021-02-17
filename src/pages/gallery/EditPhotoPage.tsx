@@ -3,5 +3,9 @@ import { GalleryEditorLayout } from '../../components/layouts/editor/gallery/Gal
 import { EditorMode } from '../../enums/common.enums'
 
 export const EditPhotoPage: React.FC = () => (
-  <GalleryEditorLayout title="Редактировать фото" mode={EditorMode.Edit} />
+  <GalleryEditorLayout
+    title="Редактировать фото"
+    mode={EditorMode.Edit}
+    url="photos"
+  />
 )

@@ -11,9 +11,8 @@ import { onChange } from '../../../helpers/form.helpers'
 import { Photo } from '../../../../types/entities.types'
 import { FilePicker } from '../../../file-picker/FilePicker'
 
-const baseUrl = `${apiUrl}/photos`
-
 export const GalleryEditorLayout: React.FC<BoundEditorLayoutProps> = props => {
+  const baseUrl = `${apiUrl}/photos`
   const id = useIdParam()
 
   const [cols, setCols] = useState(1)

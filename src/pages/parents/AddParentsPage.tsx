@@ -2,10 +2,10 @@ import React from 'react'
 import { NewsEditorLayout } from '../../components/layouts/editor/news/NewsEditorLayout'
 import { EditorMode } from '../../enums/common.enums'
 
-export const EditNewsPage: React.FC = () => (
+export const AddParentsPage: React.FC = () => (
   <NewsEditorLayout
-    title="Редактировать новость"
-    mode={EditorMode.Edit}
-    url="news"
+    title="Добавить новость для родителей"
+    mode={EditorMode.Add}
+    url="parents"
   />
 )
